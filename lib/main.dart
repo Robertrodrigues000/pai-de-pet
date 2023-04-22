@@ -3,9 +3,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'core/app_module.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
 void main() => runApp(
       ModularApp(
         module: AppModule(),
@@ -19,7 +16,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'My Smart App',
+      title: 'Template App',
       theme: ThemeData(primarySwatch: Colors.blue),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,

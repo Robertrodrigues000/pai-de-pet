@@ -4,15 +4,13 @@ import 'package:rickandmorty/presenter/pages/home/home_controller.dart';
 import '../../../core/app_controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, this.title = 'AppName'});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends AppController<HomePage , HomeController> {
+class _HomePageState extends AppController<HomePage, HomeController> {
   @override
   HomeController createController() => HomeController();
 
@@ -20,7 +18,7 @@ class _HomePageState extends AppController<HomePage , HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Home Page'),
       ),
       body: Center(
         child: Column(
@@ -43,6 +41,4 @@ class _HomePageState extends AppController<HomePage , HomeController> {
       ),
     );
   }
-  
-
 }
