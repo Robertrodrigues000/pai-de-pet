@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/presenter/pages/home/home_page.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'core/app_module.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+// void main() {
+//   runApp(const MyApp());
+// }
+void main() => runApp(
+      ModularApp(
+        module: AppModule(),
+        child: const AppWidget(),
+      ),
+    );
+
+class AppWidget extends StatelessWidget {
+  const AppWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-     home: const HomePage(title: 'Flutter Demo Home Page'),
+    return MaterialApp.router(
+      title: 'My Smart App',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
     );
   }
 }
-

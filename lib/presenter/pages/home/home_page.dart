@@ -4,7 +4,7 @@ import 'package:rickandmorty/presenter/pages/home/home_controller.dart';
 import '../../../core/app_controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+  const HomePage({super.key, this.title = 'AppName'});
 
   final String title;
 
