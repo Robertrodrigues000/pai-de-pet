@@ -1,22 +1,21 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rickandmorty/domain/entitites/char_entity.dart';
 import 'package:rickandmorty/domain/usecases/get_char_usecase.dart';
 
 class HomeController extends ChangeNotifier {
-  final GetCharUsecase _getCharUsecase;
-
-  HomeController({required GetCharUsecase getCharUsecase})
-      : _getCharUsecase = getCharUsecase;
+  final _getCharUsecase = Modular.get<GetCharUsecase>();
+ final chartListListenable = ValueNotifier<List<CharEntity>>([]);
 
   int counter = 0;
 
-  void incrementCounter() {
+  void incrementCounter() async {
     counter++;
+    await getCharList();
     notifyListeners();
   }
 
   Future getCharList() async {
-    List<CharEntity> charList = await _getCharUsecase();
-    return charList;
+    chartListListenable.value = await _getCharUsecase();
   }
 }

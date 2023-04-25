@@ -1,17 +1,23 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rickandmorty/domain/usecases/get_char_usecase.dart';
-import 'package:rickandmorty/presenter/pages/home/home_controller.dart';
+import 'package:rickandmorty/infra/repositories/char_repository.dart';
 
+import '../datasource/char_datasource.dart';
+import '../domain/repositories/char_repository.dart';
+import '../infra/datasource/char_datasource.dart';
 import '../presenter/pages/home/home_page.dart';
 
 class AppModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind.factory(
-          (i) => GetCharUsecase(charRepository: i.get()),
+        Bind.lazySingleton<ICharDatasource>(
+          (i) => CharDatasource(),
         ),
-           Bind.factory(
-          (i) => HomeController(getCharUsecase: i.get()),
+        Bind.lazySingleton<ICharRepository>(
+          (i) => CharRepository(charDatasource: i.get()),
+        ),
+        Bind.lazySingleton(
+          (i) => GetCharUsecase(charRepository: i.get()),
         ),
       ];
 
