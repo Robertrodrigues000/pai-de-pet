@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/presenter/pages/home/home_controller.dart';
+import 'package:rickandmorty/presenter/widgets/char_card.dart';
 
 import '../../../core/app_controller.dart';
+import '../../../domain/entitites/char_entity.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,24 +22,24 @@ class _HomePageState extends AppController<HomePage, HomeController> {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '${controller.counter}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: ValueListenableBuilder<List<CharEntity>>(
+          valueListenable: controller.chartListListenable,
+          builder: (context, charList, _) {
+            return SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                color: Colors.blue,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ...charList.map((char) => CharCard(char: char)),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: controller.incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

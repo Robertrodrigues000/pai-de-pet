@@ -5,17 +5,14 @@ import 'package:rickandmorty/domain/usecases/get_char_usecase.dart';
 
 class HomeController extends ChangeNotifier {
   final _getCharUsecase = Modular.get<GetCharUsecase>();
- final chartListListenable = ValueNotifier<List<CharEntity>>([]);
+  final chartListListenable = ValueNotifier<List<CharEntity>>([]);
 
-  int counter = 0;
-
-  void incrementCounter() async {
-    counter++;
-    await getCharList();
-    notifyListeners();
+  HomeController() {
+    _getCharList();
   }
 
-  Future getCharList() async {
+  Future _getCharList() async {
     chartListListenable.value = await _getCharUsecase();
+    chartListListenable.notifyListeners();
   }
 }
