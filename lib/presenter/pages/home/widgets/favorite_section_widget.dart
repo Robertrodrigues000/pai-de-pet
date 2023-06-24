@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 
-import '../../core/theme/app_text.dart';
+import '../../../../core/theme/app_text.dart';
 import 'favorite_book_card.dart';
 
-class FavoriteSection extends StatelessWidget {
-  const FavoriteSection({
+class FavoriteSectionWidget extends StatelessWidget {
+  const FavoriteSectionWidget({
     Key? key,
   }) : super(key: key);
 
@@ -28,7 +27,6 @@ class FavoriteSection extends StatelessWidget {
         SizedBox(
           height: 262,
           child: ListView(
-            // This next line does the trick.
             scrollDirection: Axis.horizontal,
             children: const <Widget>[
               FavoriteBookCard(),
