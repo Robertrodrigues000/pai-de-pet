@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 import '../../domain/entitites/char_entity.dart';
 
@@ -34,7 +32,7 @@ class CharCard extends StatelessWidget {
                       width: 0.6,
                     ),
                   ),
-    image: 
+                  // image: char.image
                 ),
               ),
             ),
