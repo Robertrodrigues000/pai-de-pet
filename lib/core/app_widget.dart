@@ -12,7 +12,8 @@ class AppWidget extends StatelessWidget {
       module: AppModule(),
       child: MaterialApp.router(
         title: 'Template App',
-        theme: ThemeData(primarySwatch: Colors.blue),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(),
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate,
       ),

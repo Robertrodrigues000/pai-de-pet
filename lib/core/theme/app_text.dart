@@ -49,6 +49,8 @@ class AppText extends StatelessWidget {
     return Text(
       text,
       style: style,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
