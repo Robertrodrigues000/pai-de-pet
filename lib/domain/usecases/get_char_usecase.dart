@@ -10,7 +10,8 @@ class GetCharUsecase {
   Future<List<CharEntity>> call() async {
     return await _charRepository.getCharList();
   }
-}
+  
+  void _init() {}
 
-class _init {
+
 }

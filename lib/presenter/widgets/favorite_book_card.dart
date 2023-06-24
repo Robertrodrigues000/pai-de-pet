@@ -10,7 +10,7 @@ class FavoriteBookCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 160,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +29,7 @@ class FavoriteBookCard extends StatelessWidget {
                       width: 0.6,
                     ),
                   ),
-                  color: Colors.amber
+                  color: AppColors.secondary
                   // image: char.image
                   ),
             ),

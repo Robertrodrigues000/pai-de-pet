@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../core/app_controller.dart';
 import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_text.dart';
-import '../../widgets/favorite_book_card.dart';
 import '../../widgets/favorite_section_widget.dart';
 import '../../widgets/tab_title_widget.dart';
 import 'home_controller.dart';
@@ -76,13 +75,29 @@ class _HomePageState extends AppController<HomePage, HomeController> {
             ),
           ],
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed, 
+          backgroundColor: Colors.white,
+          selectedItemColor: AppColors.secondary,
+          unselectedItemColor: Colors.grey,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Inicio"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_circle), label: "Adicionar"),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Buscar"),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: "Favoritos",
+            ),
+          ],
+        ),
         body: TabBarView(
           children: [
             SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
-                  children:const [
+                  children: const [
                     FavoriteSection(),
                   ],
                 ),
