@@ -1,5 +1,5 @@
-import 'package:rickandmorty/domain/entitites/char_entity.dart';
+import 'package:rickandmorty/domain/entitites/author_entity.dart';
 
 abstract class ICharDatasource {
-  Future<List<CharEntity>> getCharList();
+  Future<List<AuthorEntity>> getHomeInfo();
 }

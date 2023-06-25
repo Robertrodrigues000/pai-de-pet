@@ -1,17 +1,17 @@
 import 'package:rickandmorty/domain/repositories/char_repository.dart';
 
-import '../../datasource/char_datasource.dart';
-import '../../domain/entitites/char_entity.dart';
+import '../../domain/entitites/author_entity.dart';
+import '../../external/datasource/char_datasource.dart';
 
-class CharRepository extends ICharRepository{
+class CharRepository extends ICharRepository {
   final CharDatasource _charDatasource;
-  CharRepository({required CharDatasource charDatasource}): _charDatasource = charDatasource;
+  CharRepository({required CharDatasource charDatasource})
+      : _charDatasource = charDatasource;
 
   @override
-  Future<List<CharEntity>> getCharList() {
+  Future<List<AuthorEntity>> getHomeInfo() {
     try {
-    return _charDatasource.getCharList();
-      
+      return _charDatasource.getHomeInfo();
     } catch (e) {
       rethrow;
     }

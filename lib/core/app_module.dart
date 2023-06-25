@@ -2,7 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rickandmorty/domain/usecases/get_char_usecase.dart';
 import 'package:rickandmorty/infra/repositories/char_repository.dart';
 
-import '../datasource/char_datasource.dart';
+import '../external/datasource/char_datasource.dart';
 import '../domain/repositories/char_repository.dart';
 import '../infra/datasource/char_datasource.dart';
 import '../presenter/pages/home/home_page.dart';
