@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_text.dart';
 import 'favorite_book_card.dart';
 
 class FavoriteSectionWidget extends StatelessWidget {
+  final List<BookEntity>? bookList;
+
   const FavoriteSectionWidget({
     Key? key,
+    required this.bookList,
   }) : super(key: key);
 
   @override
@@ -28,12 +32,13 @@ class FavoriteSectionWidget extends StatelessWidget {
           height: 262,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: const <Widget>[
-              FavoriteBookCard(),
-              FavoriteBookCard(),
-              FavoriteBookCard(),
-              FavoriteBookCard(),
-              FavoriteBookCard(),
+            children: [
+              ...bookList?.map((book) {
+                    return FavoriteBookCard(
+                      book: book,
+                    );
+                  }) ??
+                  [const FavoriteBookCard()]
             ],
           ),
         ),

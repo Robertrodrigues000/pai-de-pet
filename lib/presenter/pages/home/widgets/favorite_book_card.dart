@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/core/theme/app_text.dart';
+import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_color.dart';
 
 class FavoriteBookCard extends StatelessWidget {
+  final BookEntity? book;
+
   const FavoriteBookCard({
     Key? key,
+    this.book,
   }) : super(key: key);
 
   @override
@@ -22,20 +26,25 @@ class FavoriteBookCard extends StatelessWidget {
               width: 136,
               height: 198,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: const Border.fromBorderSide(
-                    BorderSide(
-                      color: AppColors.secondary,
-                      width: 0.6,
-                    ),
+                borderRadius: BorderRadius.circular(10),
+                border: const Border.fromBorderSide(
+                  BorderSide(
+                    color: AppColors.secondary,
+                    width: 0.6,
                   ),
-                  color: AppColors.secondary
-                  // image: char.image
-                  ),
+                ),
+                color: AppColors.secondary,
+                image: book != null
+                    ? DecorationImage(
+                        image: NetworkImage(book!.cover),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
             ),
           ),
-          AppText.cadTitle('O duque e eu(Os Bridgertons Livro 1)'),
-          AppText.subtitle('Julia Quin'),
+          AppText.cadTitle(book!.name),
+          AppText.subtitle(book!.author),
         ],
       ),
     );

@@ -5,7 +5,7 @@ import '../../domain/entitites/home_info_entity.dart';
 import '../../infra/datasource/char_datasource.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
-class CharDatasource extends ICharDatasource {
+class Datasource extends IDatasource {
   final String url = 'https://us-central1-ss-devops.cloudfunctions.net/GraphQL';
 
   @override
@@ -18,13 +18,5 @@ class CharDatasource extends ICharDatasource {
     } catch (e) {
       rethrow;
     }
-    //   final response = await client.get(Uri.parse(url));
-    //   final data = (jsonDecode(response.body) as List)
-    //       .map((item) => HomeInfoMapper.fromMap(item))
-    //       .toList();
-    //   return data;
-    // } catch (e) {
-    //   rethrow;
-    // }
   }
 }

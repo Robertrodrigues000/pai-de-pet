@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/domain/entitites/home_info_entity.dart';
 import 'package:rickandmorty/presenter/pages/home/widgets/author_section_widget.dart';
 import 'package:rickandmorty/presenter/pages/home/widgets/favorite_section_widget.dart';
 
@@ -54,25 +55,35 @@ class _HomePageState extends AppController<HomePage, HomeController> {
             ),
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(50),
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
+            ValueListenableBuilder<HomeInfoEntity?>(
+              valueListenable: controller.homeInfoListListenable,
+              builder: (context, info, _) {
+                return Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
-                    border: const Border.fromBorderSide(
-                      BorderSide(
-                        color: AppColors.secondary,
-                        width: 0.6,
+                    child: Container(
+                      width: 32,
+                      height: 32,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        border: const Border.fromBorderSide(
+                          BorderSide(
+                            color: AppColors.secondary,
+                            width: 0.6,
+                          ),
+                        ),
+                        image: info != null
+                            ? DecorationImage(
+                                image: NetworkImage(info.userPicture),
+                                fit: BoxFit.cover,
+                              )
+                            : null,
                       ),
                     ),
-                    // image: char.image
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ],
         ),
@@ -102,17 +113,25 @@ class _HomePageState extends AppController<HomePage, HomeController> {
         ),
         body: TabBarView(
           children: [
-            SingleChildScrollView(
-              child: Column(
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
-                    child: FavoriteSectionWidget(),
+            ValueListenableBuilder<HomeInfoEntity?>(
+              valueListenable: controller.homeInfoListListenable,
+              builder: (context, info, _) {
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: FavoriteSectionWidget(
+                          bookList:
+                              info != null ? controller.favoriteBooks : null,
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      const AuthorsSectionWidget(),
+                    ],
                   ),
-                  SizedBox(height: 30),
-                  AuthorsSectionWidget(),
-                ],
-              ),
+                );
+              },
             ),
             Container(),
           ],
