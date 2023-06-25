@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/core/theme/app_text.dart';
+import 'package:rickandmorty/domain/entitites/author_entity.dart';
 
 import '../../../../core/theme/app_color.dart';
 
 class FavoriteAuthorCard extends StatelessWidget {
+  final AuthorEntity? author;
+
   const FavoriteAuthorCard({
     Key? key,
+    this.author,
   }) : super(key: key);
 
   @override
@@ -21,16 +25,21 @@ class FavoriteAuthorCard extends StatelessWidget {
               width: 63,
               height: 67,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: const Border.fromBorderSide(
-                    BorderSide(
-                      color: AppColors.secondary,
-                      width: 0.6,
-                    ),
+                borderRadius: BorderRadius.circular(10),
+                border: const Border.fromBorderSide(
+                  BorderSide(
+                    color: AppColors.secondary,
+                    width: 0.6,
                   ),
-                  color: AppColors.secondary
-                  // image: char.image
-                  ),
+                ),
+                color: AppColors.secondary,
+                image: author != null
+                    ? DecorationImage(
+                        image: NetworkImage(author!.picture),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
             ),
           ),
           const SizedBox(
@@ -40,9 +49,9 @@ class FavoriteAuthorCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText.cadTitle('Connie Brockway'),
+              AppText.cadTitle(author!.name),
               const SizedBox(height: 5),
-              AppText.subtitle('6 livros'),
+              AppText.subtitle('${author!.booksCount} livros'),
             ],
           ),
         ],

@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/domain/entitites/author_entity.dart';
+import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_text.dart';
 import 'favorite_author_card.dart';
 import 'library_section_widget.dart';
 
 class AuthorsSectionWidget extends StatelessWidget {
+  final List<AuthorEntity>? authorList;
+  final List<BookEntity>? bookList;
+
   const AuthorsSectionWidget({
     Key? key,
+    this.authorList, 
+    this.bookList,
   }) : super(key: key);
 
   @override
@@ -39,17 +46,20 @@ class AuthorsSectionWidget extends StatelessWidget {
               height: 69,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: const [
-                  FavoriteAuthorCard(),
-                  FavoriteAuthorCard(),
-                  FavoriteAuthorCard(),
-                  FavoriteAuthorCard(),
-                  FavoriteAuthorCard(),
+                children: [
+                  ...authorList?.map((author) {
+                        return FavoriteAuthorCard(
+                          author: author,
+                        );
+                      }) ??
+                      [const FavoriteAuthorCard()]
                 ],
               ),
             ),
             const SizedBox(height: 30),
-            const LibrarySection(),
+            LibrarySection(
+              bookList: bookList,
+            ),
           ],
         ),
       ),

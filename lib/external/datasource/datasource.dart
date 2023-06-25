@@ -2,7 +2,7 @@ import 'package:rickandmorty/external/graphiql/app_queries.dart';
 import 'package:rickandmorty/external/mappers/home_info_mapper.dart';
 
 import '../../domain/entitites/home_info_entity.dart';
-import '../../infra/datasource/char_datasource.dart';
+import '../../infra/datasource/datasource.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
 class Datasource extends IDatasource {

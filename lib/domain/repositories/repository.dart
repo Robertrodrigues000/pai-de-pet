@@ -1,5 +1,5 @@
 import '../entitites/home_info_entity.dart';
 
-abstract class ICharRepository {
+abstract class IRepository {
   Future<HomeInfoEntity> getHomeInfo();
 }

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_text.dart';
 import 'category_chip_widget.dart';
 import 'library_card.dart';
 
 class LibrarySection extends StatelessWidget {
+  final List<BookEntity>? bookList;
+
   const LibrarySection({
     Key? key,
+    this.bookList,
   }) : super(key: key);
 
   @override
@@ -41,14 +45,24 @@ class LibrarySection extends StatelessWidget {
           ),
         ),
         Column(
-          children: const [
-            LibraryCard(),
-            LibraryCard(),
-            LibraryCard(),
-            LibraryCard(),
-            LibraryCard(),
-            LibraryCard(),
+          children: [
+            ...?bookList?.map(
+              (book) {
+                return LibraryCard(
+                  book: book,
+                );
+              },
+            ),
           ],
+
+          // const [
+          //   LibraryCard(),
+          //   LibraryCard(),
+          //   LibraryCard(),
+          //   LibraryCard(),
+          //   LibraryCard(),
+          //   LibraryCard(),
+          // ],
         ),
       ],
     );

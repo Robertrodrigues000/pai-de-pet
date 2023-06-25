@@ -127,7 +127,11 @@ class _HomePageState extends AppController<HomePage, HomeController> {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      const AuthorsSectionWidget(),
+                      AuthorsSectionWidget(
+                        authorList:
+                            info != null ? controller.favoriteAuthors : null,
+                            bookList: info != null ? controller.allBooks : null,
+                      ),
                     ],
                   ),
                 );

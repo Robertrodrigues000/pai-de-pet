@@ -1,10 +1,10 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:rickandmorty/domain/usecases/get_char_usecase.dart';
-import 'package:rickandmorty/infra/repositories/char_repository.dart';
+import 'package:rickandmorty/domain/usecases/get_home_info_usecase.dart';
+import 'package:rickandmorty/infra/repositories/repository.dart';
 
 import '../external/datasource/datasource.dart';
-import '../domain/repositories/char_repository.dart';
-import '../infra/datasource/char_datasource.dart';
+import '../domain/repositories/repository.dart';
+import '../infra/datasource/datasource.dart';
 import '../presenter/pages/home/home_page.dart';
 
 class AppModule extends Module {
@@ -13,11 +13,11 @@ class AppModule extends Module {
         Bind.lazySingleton<IDatasource>(
           (i) => Datasource(),
         ),
-        Bind.lazySingleton<ICharRepository>(
-          (i) => CharRepository(charDatasource: i.get()),
+        Bind.lazySingleton<IRepository>(
+          (i) => Repository(datasource: i.get()),
         ),
         Bind.lazySingleton(
-          (i) => GetCharUsecase(charRepository: i.get()),
+          (i) => GetHomeInfoUsecase(repository: i.get()),
         ),
       ];
 
