@@ -4,8 +4,8 @@ class BookMapper {
   static BookEntity fromMap(Map<String, dynamic> map) {
     return BookEntity(
       name: map['name'],
-      author:  map['author'],
-      cover:  map['cover'],
+      author: map['author']['name'],
+      cover: map['cover'],
     );
   }
 }

@@ -1,6 +1,5 @@
-import 'package:rickandmorty/domain/entitites/author_entity.dart';
-
 import '../../infra/repositories/char_repository.dart';
+import '../entitites/home_info_entity.dart';
 
 class GetCharUsecase {
   final CharRepository _charRepository;
@@ -10,7 +9,7 @@ class GetCharUsecase {
     _init();
   }
 
-  Future<List<AuthorEntity>> call() async {
+  Future<HomeInfoEntity> call() async {
     return await _charRepository.getHomeInfo();
   }
 

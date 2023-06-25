@@ -1,5 +1,5 @@
-import '../entitites/author_entity.dart';
+import '../entitites/home_info_entity.dart';
 
 abstract class ICharRepository {
-  Future<List<AuthorEntity>> getHomeInfo();
+  Future<HomeInfoEntity> getHomeInfo();
 }

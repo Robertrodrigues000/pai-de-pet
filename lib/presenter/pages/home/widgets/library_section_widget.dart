@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/app_text.dart';
 import 'category_chip_widget.dart';
 import 'library_card.dart';

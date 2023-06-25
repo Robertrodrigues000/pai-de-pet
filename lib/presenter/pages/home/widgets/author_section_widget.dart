@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:rickandmorty/core/theme/app_color.dart';
 
 import '../../../../core/theme/app_text.dart';
-import 'category_chip_widget.dart';
 import 'favorite_author_card.dart';
 import 'library_section_widget.dart';
 
