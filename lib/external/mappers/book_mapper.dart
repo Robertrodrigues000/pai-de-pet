@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 class BookMapper {
@@ -9,6 +10,17 @@ class BookMapper {
       cover: map['cover'],
       description: map['description'],
       isFavorite: map['isFavorite'],
+    );
+  }
+
+  static BookEntity fake() {
+    return BookEntity(
+      author: faker.person.name(),
+      cover: faker.image.image(),
+      id: faker.randomGenerator.integer(10).toString(),
+      name: faker.company.name(),
+      description: faker.lorem.sentence(),
+      isFavorite: faker.randomGenerator.boolean(),
     );
   }
 }

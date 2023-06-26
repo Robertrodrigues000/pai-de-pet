@@ -54,15 +54,6 @@ class LibrarySection extends StatelessWidget {
               },
             ),
           ],
-
-          // const [
-          //   LibraryCard(),
-          //   LibraryCard(),
-          //   LibraryCard(),
-          //   LibraryCard(),
-          //   LibraryCard(),
-          //   LibraryCard(),
-          // ],
         ),
       ],
     );
