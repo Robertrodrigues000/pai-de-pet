@@ -32,6 +32,7 @@ class _HomePageState extends AppController<HomePage, HomeController> {
             : DefaultTabController(
                 length: 2,
                 child: Scaffold(
+                  key: controller.scaffoldKey,
                   appBar: AppBar(
                     title: const TabTitleWidget(),
                     backgroundColor: Colors.white,

@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../domain/entitites/book_entity.dart';
@@ -9,6 +9,7 @@ class BookController extends ChangeNotifier {
 
   final _getbookUsecase = Modular.get<GetBookUsecase>();
   final bookListListenable = ValueNotifier<BookEntity?>(null);
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   BookController({
     required String bookId,
@@ -17,7 +18,7 @@ class BookController extends ChangeNotifier {
   }
 
   Future _getBook() async {
-    bookListListenable.value = await _getbookUsecase(bookId: _bookId);
+    bookListListenable.value = await _getbookUsecase(bookId: _bookId, context: scaffoldKey.currentContext);
     bookListListenable.notifyListeners();
   }
 }

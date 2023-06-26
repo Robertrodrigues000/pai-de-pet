@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:rickandmorty/domain/entitites/author_entity.dart';
 import 'package:rickandmorty/domain/entitites/book_entity.dart';
@@ -9,6 +9,7 @@ import '../../../domain/entitites/home_info_entity.dart';
 class HomeController extends ChangeNotifier {
   final _getHomeInfoUsecase = Modular.get<GetHomeInfoUsecase>();
   final homeInfoListListenable = ValueNotifier<HomeInfoEntity?>(null);
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   HomeController() {
     _getHomeInfo();
@@ -20,7 +21,7 @@ class HomeController extends ChangeNotifier {
   List<AuthorEntity> get favoriteAuthors => homeInfo.favoriteAuthors;
 
   Future _getHomeInfo() async {
-    homeInfoListListenable.value = await _getHomeInfoUsecase();
+    homeInfoListListenable.value = await _getHomeInfoUsecase(context: scaffoldKey.currentContext);
     homeInfoListListenable.notifyListeners();
   }
 }

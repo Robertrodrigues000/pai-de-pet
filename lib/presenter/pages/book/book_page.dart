@@ -29,6 +29,7 @@ class _BookPageState extends AppController<BookPage, BookController> {
         return book == null
             ? const LoadingScreenWidget()
             : Scaffold(
+                key: controller.scaffoldKey,
                 appBar: AppBar(
                   actions: const [Icon(Icons.more_vert)],
                   backgroundColor: Colors.transparent,
