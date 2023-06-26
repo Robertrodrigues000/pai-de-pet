@@ -66,7 +66,26 @@ class _BookPageState extends AppController<BookPage, BookController> {
                                 Padding(
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 10),
-                                  child: AppText.cadTitle(book.name),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.8,
+                                        child: AppText.cadTitle(book.name),
+                                      ),
+                                      book.isFavorite!
+                                          ? const Icon(
+                                              Icons.favorite,
+                                              color: AppColors.secondary,
+                                            )
+                                          : const Icon(Icons.favorite_border)
+                                    ],
+                                  ),
                                 ),
                                 AppText.subtitle(book.author),
                                 const SizedBox(height: 30),
