@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/presenter/widgets/tab_title_widget.dart';
 
@@ -12,21 +11,21 @@ class LoadingScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              TabTitleWidget(),
-              SizedBox(height: 20),
-              CircularProgressIndicator(
-                backgroundColor: Colors.white,
-                color: AppColors.secondary,
-              ),
-            ],
-          ),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            TabTitleWidget(),
+            SizedBox(height: 20),
+            CircularProgressIndicator(
+              backgroundColor: Colors.white,
+              color: AppColors.primary,
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

@@ -32,11 +32,11 @@ class LibraryCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   border: const Border.fromBorderSide(
                     BorderSide(
-                      color: AppColors.secondary,
+                      color: AppColors.primary,
                       width: 0.6,
                     ),
                   ),
-                  color: AppColors.secondary,
+                  color: AppColors.primary,
                   image: book != null
                       ? DecorationImage(
                           image: NetworkImage(book!.cover),

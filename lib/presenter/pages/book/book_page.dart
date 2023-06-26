@@ -44,7 +44,7 @@ class _BookPageState extends AppController<BookPage, BookController> {
                     ),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: AppColors.secondary,
+                        color: AppColors.primary,
                         image: DecorationImage(
                           image: NetworkImage(book.cover),
                           fit: BoxFit.cover,
@@ -82,7 +82,7 @@ class _BookPageState extends AppController<BookPage, BookController> {
                                       book.isFavorite!
                                           ? const Icon(
                                               Icons.favorite,
-                                              color: AppColors.secondary,
+                                              color: AppColors.primary,
                                             )
                                           : const Icon(Icons.favorite_border)
                                     ],

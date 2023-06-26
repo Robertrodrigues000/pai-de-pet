@@ -50,7 +50,7 @@ class _HomePageState extends AppController<HomePage, HomeController> {
                           indicator: const UnderlineTabIndicator(
                             borderSide: BorderSide(
                               width: 4,
-                              color: AppColors.secondary,
+                              color: AppColors.primary,
                             ),
                           ),
                           labelPadding:
@@ -75,7 +75,7 @@ class _HomePageState extends AppController<HomePage, HomeController> {
                                 borderRadius: BorderRadius.circular(50),
                                 border: const Border.fromBorderSide(
                                   BorderSide(
-                                    color: AppColors.secondary,
+                                    color: AppColors.primary,
                                     width: 0.6,
                                   ),
                                 ),

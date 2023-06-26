@@ -26,12 +26,11 @@ class CategoryChip extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
               border: Border.fromBorderSide(
                 BorderSide(
-                  color:
-                      isSelected ? AppColors.secondary : AppColors.primaryLight,
+                  color: isSelected ? AppColors.primary : AppColors.grey,
                   width: 0.6,
                 ),
               ),
-              color: isSelected ? AppColors.secondary : Colors.white,
+              color: isSelected ? AppColors.primary : Colors.white,
               // image: char.image
             ),
             child: Padding(
@@ -43,7 +42,7 @@ class CategoryChip extends StatelessWidget {
                   style: GoogleFonts.roboto(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: isSelected ? Colors.white : AppColors.primary,
+                    color: isSelected ? Colors.white : AppColors.textColor,
                   ),
                 ),
               ),

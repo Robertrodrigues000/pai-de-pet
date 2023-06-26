@@ -15,13 +15,13 @@ class TabTitleWidget extends StatelessWidget {
         style: GoogleFonts.bebasNeue(
           fontWeight: FontWeight.w400,
           fontSize: 33,
-          color: AppColors.primary,
+          color: AppColors.textColor,
         ),
         children: const [
           TextSpan(text: 'SS'),
           TextSpan(
             text: 'BOOK',
-            style: TextStyle(color: AppColors.secondary),
+            style: TextStyle(color: AppColors.primary),
           ),
         ],
       ),
