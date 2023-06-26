@@ -7,6 +7,8 @@ class BookMapper {
       name: map['name'],
       author: map['author']['name'],
       cover: map['cover'],
+      description: map['description'],
+      isFavorite: map['isFavorite'],
     );
   }
 }

@@ -6,42 +6,50 @@ import 'app_color.dart';
 class AppText extends StatelessWidget {
   final String text;
   final TextStyle? style;
+  final int? maxLine;
 
-  const AppText({super.key, required this.text, this.style});
+  const AppText({super.key, required this.text, this.style, this.maxLine});
 
-  AppText.tab(this.text, {super.key})
+  AppText.tab(this.text, {this.maxLine,super.key})
       : style = GoogleFonts.roboto(
           fontSize: 14,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
         );
 
-  AppText.sessionTitle(this.text, {super.key})
+  AppText.sessionTitle(this.text, {this.maxLine, super.key})
       : style = GoogleFonts.roboto(
           fontSize: 20,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
         );
 
-  AppText.cadTitle(this.text, {super.key})
+  AppText.cadTitle(this.text, {this.maxLine, super.key})
       : style = GoogleFonts.roboto(
           fontSize: 16,
           fontWeight: FontWeight.w700,
           color: AppColors.primary,
         );
 
-  AppText.subtitle(this.text, {super.key})
+  AppText.subtitle(this.text, {this.maxLine, super.key})
       : style = GoogleFonts.roboto(
           fontSize: 14,
           fontWeight: FontWeight.w400,
           color: AppColors.primaryLight,
         );
 
-  AppText.seeMore(this.text, {super.key})
+  AppText.seeMore(this.text, {this.maxLine, super.key})
       : style = GoogleFonts.roboto(
           fontSize: 14,
           fontWeight: FontWeight.w700,
           color: AppColors.secondary,
+        );
+
+  AppText.description(this.text, {this.maxLine, super.key})
+      : style = GoogleFonts.roboto(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: AppColors.primaryLight,
         );
 
   @override
@@ -49,8 +57,8 @@ class AppText extends StatelessWidget {
     return Text(
       text,
       style: style,
-      maxLines: 2,
-      overflow: TextOverflow.ellipsis,
+      maxLines: maxLine,
+      // overflow: TextOverflow.ellipsis,
     );
   }
 }

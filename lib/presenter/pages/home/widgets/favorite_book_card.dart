@@ -47,7 +47,10 @@ class FavoriteBookCard extends StatelessWidget {
                 ),
               ),
             ),
-            AppText.cadTitle(book!.name),
+            AppText.cadTitle(
+              book!.name,
+              maxLine: 2,
+            ),
             AppText.subtitle(book!.author),
           ],
         ),

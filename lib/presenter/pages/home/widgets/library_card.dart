@@ -52,7 +52,10 @@ class LibraryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 5),
-                AppText.cadTitle(book!.name),
+                AppText.cadTitle(
+                  book!.name,
+                  maxLine: 2,
+                ),
                 const SizedBox(height: 5),
                 AppText.subtitle(book!.author),
               ],

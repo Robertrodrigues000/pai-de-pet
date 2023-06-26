@@ -49,7 +49,10 @@ class FavoriteAuthorCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppText.cadTitle(author!.name),
+              AppText.cadTitle(
+                author!.name,
+                maxLine: 2,
+              ),
               const SizedBox(height: 5),
               AppText.subtitle('${author!.booksCount} livros'),
             ],
