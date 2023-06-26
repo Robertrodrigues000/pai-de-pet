@@ -7,7 +7,7 @@ import 'package:rickandmorty/domain/usecases/get_home_info_usecase.dart';
 import '../../../domain/entitites/home_info_entity.dart';
 
 class HomeController extends ChangeNotifier {
-  final _getCharUsecase = Modular.get<GetHomeInfoUsecase>();
+  final _getHomeInfoUsecase = Modular.get<GetHomeInfoUsecase>();
   final homeInfoListListenable = ValueNotifier<HomeInfoEntity?>(null);
 
   HomeController() {
@@ -20,7 +20,7 @@ class HomeController extends ChangeNotifier {
   List<AuthorEntity> get favoriteAuthors => homeInfo.favoriteAuthors;
 
   Future _getHomeInfo() async {
-    homeInfoListListenable.value = await _getCharUsecase();
+    homeInfoListListenable.value = await _getHomeInfoUsecase();
     homeInfoListListenable.notifyListeners();
   }
 }

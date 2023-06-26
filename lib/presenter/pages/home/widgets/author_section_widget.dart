@@ -7,13 +7,13 @@ import 'favorite_author_card.dart';
 import 'library_section_widget.dart';
 
 class AuthorsSectionWidget extends StatelessWidget {
-  final List<AuthorEntity>? authorList;
-  final List<BookEntity>? bookList;
+  final List<AuthorEntity> authorList;
+  final List<BookEntity> bookList;
 
   const AuthorsSectionWidget({
     Key? key,
-    this.authorList, 
-    this.bookList,
+    required this.authorList,
+    required this.bookList,
   }) : super(key: key);
 
   @override
@@ -47,12 +47,13 @@ class AuthorsSectionWidget extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ...authorList?.map((author) {
-                        return FavoriteAuthorCard(
-                          author: author,
-                        );
-                      }) ??
-                      [const FavoriteAuthorCard()]
+                  ...authorList.map(
+                    (author) {
+                      return FavoriteAuthorCard(
+                        author: author,
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

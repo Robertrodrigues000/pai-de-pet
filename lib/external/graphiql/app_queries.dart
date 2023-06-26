@@ -29,4 +29,18 @@ class AppQueries {
   }
 }
  ''';
+
+  static String getBook({required String bookId}) => '''query {
+  book(id: $bookId) {
+    id
+    name
+    author {
+      name
+    }
+    cover
+    description
+    isFavorite
+  }
+}
+ ''';
 }

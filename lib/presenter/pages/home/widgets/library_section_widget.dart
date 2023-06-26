@@ -6,11 +6,11 @@ import 'category_chip_widget.dart';
 import 'library_card.dart';
 
 class LibrarySection extends StatelessWidget {
-  final List<BookEntity>? bookList;
+  final List<BookEntity> bookList;
 
   const LibrarySection({
     Key? key,
-    this.bookList,
+    required this.bookList,
   }) : super(key: key);
 
   @override
@@ -46,7 +46,7 @@ class LibrarySection extends StatelessWidget {
         ),
         Column(
           children: [
-            ...?bookList?.map(
+            ...bookList.map(
               (book) {
                 return LibraryCard(
                   book: book,

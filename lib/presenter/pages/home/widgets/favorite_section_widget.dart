@@ -5,7 +5,7 @@ import '../../../../core/theme/app_text.dart';
 import 'favorite_book_card.dart';
 
 class FavoriteSectionWidget extends StatelessWidget {
-  final List<BookEntity>? bookList;
+  final List<BookEntity> bookList;
 
   const FavoriteSectionWidget({
     Key? key,
@@ -33,12 +33,13 @@ class FavoriteSectionWidget extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              ...bookList?.map((book) {
-                    return FavoriteBookCard(
-                      book: book,
-                    );
-                  }) ??
-                  [const FavoriteBookCard()]
+              ...bookList.map(
+                (book) {
+                  return FavoriteBookCard(
+                    book: book,
+                  );
+                },
+              )
             ],
           ),
         ),

@@ -5,7 +5,6 @@ class AuthorMapper {
     return AuthorEntity(
       name: map['name'],
       booksCount: map['booksCount'],
-      id: map['id'],
       picture: map['picture'],
     );
   }

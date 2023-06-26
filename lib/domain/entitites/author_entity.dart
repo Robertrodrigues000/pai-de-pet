@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 class AuthorEntity extends Equatable {
-  final String id;
   final String name;
   final String picture;
   final int? booksCount;
@@ -10,7 +9,6 @@ class AuthorEntity extends Equatable {
     required this.picture,
     this.booksCount,
     required this.name,
-    required this.id,
   });
 
   @override
@@ -18,6 +16,5 @@ class AuthorEntity extends Equatable {
         name,
         picture,
         booksCount,
-        id,
       ];
 }
