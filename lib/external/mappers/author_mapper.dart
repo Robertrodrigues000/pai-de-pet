@@ -1,4 +1,4 @@
-import 'package:rickandmorty/domain/entitites/author_entity.dart';
+import '../../domain/entitites/author_entity.dart';
 
 class AuthorMapper {
   static AuthorEntity fromMap(Map<String, dynamic> map) {

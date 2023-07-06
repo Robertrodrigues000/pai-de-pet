@@ -1,26 +1,24 @@
+import 'package:dio/dio.dart';
+import 'package:either_dart/either.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:rickandmorty/domain/repositories/repository.dart';
-import 'package:rickandmorty/presenter/widgets/snackbar_widget.dart';
 
 import '../../domain/entitites/book_entity.dart';
 import '../../domain/entitites/home_info_entity.dart';
+import '../../domain/repositories/repository.dart';
 import '../../external/datasource/datasource.dart';
+import '../../presenter/widgets/snackbar_widget.dart';
 
 class Repository extends IRepository {
   final Datasource _datasource;
   Repository({required Datasource datasource}) : _datasource = datasource;
 
   @override
-  Future<HomeInfoEntity> getHomeInfo({required BuildContext? context}) {
+  Future<Either<Exception, HomeInfoEntity>> getHomeInfo() async {
     try {
-      return _datasource.getHomeInfo();
-    } catch (e) {
-      SnackbarHelper.error(
-        message:
-            'Erro ao carregar as informações, favor tentar novamente mais tarde.',
-        context: context!,
-      );
-      rethrow;
+      HomeInfoEntity response = await _datasource.getHomeInfo();
+      return Right(response);
+    } on DioException catch(e) {
+      return Left(e);
     }
   }
 

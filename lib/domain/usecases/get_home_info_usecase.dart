@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:either_dart/either.dart';
 
 import '../../infra/repositories/repository.dart';
 import '../entitites/home_info_entity.dart';
@@ -10,7 +10,7 @@ class GetHomeInfoUsecase {
     required Repository repository,
   }) : _repository = repository;
 
-  Future<HomeInfoEntity> call({required BuildContext? context}) async {
-    return await _repository.getHomeInfo(context: context);
+  Future<Either<dynamic, HomeInfoEntity>> call() async {
+    return await _repository.getHomeInfo();
   }
 }

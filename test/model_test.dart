@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
-import 'package:rickandmorty/external/mappers/book_mapper.dart';
+import 'package:ssbook/domain/entitites/book_entity.dart';
+import 'package:ssbook/external/mappers/book_mapper.dart';
 
 void main() {
   test('Create a model from Json', () {

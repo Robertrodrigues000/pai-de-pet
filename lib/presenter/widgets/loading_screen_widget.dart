@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/presenter/widgets/tab_title_widget.dart';
+import 'package:ssbook/presenter/widgets/tab_title_widget.dart';
 
 import '../../core/theme/app_color.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/domain/entitites/author_entity.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_text.dart';
+import '../../../../domain/entitites/author_entity.dart';
+import '../../../../domain/entitites/book_entity.dart';
 import 'favorite_author_card.dart';
 import 'library_section_widget.dart';
 

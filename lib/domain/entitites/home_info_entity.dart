@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import 'author_entity.dart';
+import 'book_entity.dart';
 
 class HomeInfoEntity extends Equatable {
   final String userPicture;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/core/theme/app_text.dart';
-import 'package:rickandmorty/domain/entitites/author_entity.dart';
 
 import '../../../../core/theme/app_color.dart';
+import '../../../../core/theme/app_text.dart';
+import '../../../../domain/entitites/author_entity.dart';
 
 class FavoriteAuthorCard extends StatelessWidget {
   final AuthorEntity? author;

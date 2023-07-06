@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:rickandmorty/domain/entitites/author_entity.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
-import 'package:rickandmorty/domain/usecases/get_home_info_usecase.dart';
 
+import '../../../domain/entitites/author_entity.dart';
+import '../../../domain/entitites/book_entity.dart';
 import '../../../domain/entitites/home_info_entity.dart';
+import '../../../domain/usecases/get_home_info_usecase.dart';
+import '../../widgets/snackbar_widget.dart';
 
 class HomeController extends ChangeNotifier {
   final _getHomeInfoUsecase = Modular.get<GetHomeInfoUsecase>();
@@ -20,8 +21,18 @@ class HomeController extends ChangeNotifier {
   List<BookEntity> get allBooks => homeInfo.allBooks;
   List<AuthorEntity> get favoriteAuthors => homeInfo.favoriteAuthors;
 
-  Future _getHomeInfo() async {
-    homeInfoListListenable.value = await _getHomeInfoUsecase(context: scaffoldKey.currentContext);
-    homeInfoListListenable.notifyListeners();
+  Future<void> _getHomeInfo() async {
+    var response = await _getHomeInfoUsecase();
+
+    if (response.isRight) {
+      homeInfoListListenable.value = response.right;
+      homeInfoListListenable.notifyListeners();
+    } else {
+      SnackbarHelper.error(
+        message:
+            'Erro ao carregar as informações, favor tentar novamente mais tarde.',
+        context: scaffoldKey.currentContext!,
+      );
+    }
   }
 }

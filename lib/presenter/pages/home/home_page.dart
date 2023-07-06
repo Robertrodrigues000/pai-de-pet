@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/domain/entitites/home_info_entity.dart';
-import 'package:rickandmorty/presenter/pages/home/widgets/author_section_widget.dart';
-import 'package:rickandmorty/presenter/pages/home/widgets/favorite_section_widget.dart';
-import 'package:rickandmorty/presenter/widgets/loading_screen_widget.dart';
 
 import '../../../core/app_controller.dart';
 import '../../../core/theme/app_color.dart';
 import '../../../core/theme/app_text.dart';
+import '../../../domain/entitites/home_info_entity.dart';
 import '../../widgets/bootom_navigation_widget.dart';
+import '../../widgets/loading_screen_widget.dart';
 import '../../widgets/tab_title_widget.dart';
 import 'home_controller.dart';
+import 'widgets/author_section_widget.dart';
+import 'widgets/favorite_section_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

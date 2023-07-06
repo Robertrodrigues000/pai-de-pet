@@ -1,5 +1,6 @@
 import 'package:faker/faker.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
+
+import '../../domain/entitites/book_entity.dart';
 
 class BookMapper {
   static BookEntity fromMap(Map<String, dynamic> map) {

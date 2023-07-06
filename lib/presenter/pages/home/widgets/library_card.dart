@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_color.dart';
 import '../../../../core/theme/app_text.dart';
+import '../../../../domain/entitites/book_entity.dart';
 
 class LibraryCard extends StatelessWidget {
   final BookEntity? book;

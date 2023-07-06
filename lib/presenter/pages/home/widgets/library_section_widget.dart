@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/domain/entitites/book_entity.dart';
 
 import '../../../../core/theme/app_text.dart';
+import '../../../../domain/entitites/book_entity.dart';
 import 'category_chip_widget.dart';
 import 'library_card.dart';
 

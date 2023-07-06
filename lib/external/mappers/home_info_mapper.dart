@@ -1,6 +1,5 @@
-import 'package:rickandmorty/external/mappers/author_mapper.dart';
-
 import '../../domain/entitites/home_info_entity.dart';
+import 'author_mapper.dart';
 import 'book_mapper.dart';
 
 class HomeInfoMapper {
