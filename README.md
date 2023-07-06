@@ -1,2 +1,2 @@
-# Rick And Morty
+# SSBOK
 Flutter clean arch template
