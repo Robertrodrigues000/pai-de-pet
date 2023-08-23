@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ssbook/domain/entitites/book_entity.dart';
-import 'package:ssbook/external/mappers/book_mapper.dart';
+import 'package:pai_de_pet/domain/entitites/book_entity.dart';
+import 'package:pai_de_pet/external/mappers/book_mapper.dart';
 
 void main() {
   test('Create a model from Json', () {

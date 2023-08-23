@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ssbook/presenter/pages/book/book_controller.dart';
+import 'package:pai_de_pet/presenter/pages/book/book_controller.dart';
 
 import '../../../core/app_controller.dart';
 import '../../../core/theme/app_color.dart';
