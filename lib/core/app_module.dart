@@ -8,6 +8,7 @@ import '../infra/datasource/datasource.dart';
 import '../infra/repositories/repository.dart';
 import '../presenter/pages/book/book_page.dart';
 import '../presenter/pages/home/home_page.dart';
+import '../presenter/pages/login/login_page.dart';
 
 class AppModule extends Module {
   @override
@@ -30,6 +31,10 @@ class AppModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
+          child: (context, args) => const LoginPage(),
+        ),
+        ChildRoute(
+          '/home/',
           child: (context, args) => const HomePage(),
         ),
         ChildRoute(
